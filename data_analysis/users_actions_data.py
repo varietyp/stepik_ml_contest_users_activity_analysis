@@ -70,3 +70,11 @@ events_data = events_data.merge(user_min_time[['user_id',
 
 events_data_train = events_data[events_data.user_time
                                 <= events_data.user_learning_time_threshold]
+
+submissions_data['users_time'] = (submissions_data.user_id.map(str) + '_' +
+                                  submissions_data.timestamp.map(str))
+submissions_data = submissions_data.merge(user_min_time[['user_id',
+                                                         'user_learning_time_threshold']],
+                                          how='outer')
+submissions_data_train = submissions_data[submissions_data.users_time <=
+                                          submissions_data.user_learning_time_threshold]
