@@ -1,9 +1,5 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-sns.set(rc={'figure.figsize': (9, 6)})
 
 submissions_data = pd.read_csv('submissions_data_train.csv')
 
